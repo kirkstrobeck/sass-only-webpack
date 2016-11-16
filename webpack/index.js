@@ -1,49 +1,37 @@
-//Variable Declarations
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require('path');
+// const webpack = require('webpack');
 
-/*var KssWebpackPlugin = require('kss-webpack-plugin');
-var KssConfig = {
-  source: '../src/scss'
-};*/
-var webpack = require('webpack');
-var path = require('path');
-var root = path.join(__dirname, '..');
+const root = path.join(__dirname, '..');
 
-//Modules
 module.exports = {
-    debug: true,
-    entry: {
-        main: path.join(root, 'src/js')
-    },
-    output: {
-        path: path.join(root, 'dist'),
-        filename: '[name].js',
-        //sourceMapFilename: '[name].map'
-    },
-    devtool: 'source-map',
-    module: {
-        loaders: [
-        {
-
-          test: /\.scss$/,
-          loader: ExtractTextPlugin.extract(
-                    'style', // The backup style loader
-                    'css?sourceMap',
-                    'sass?sourceMap'
-                )
-        }
-        ]
-    },
-    plugins: [
-        new ExtractTextPlugin('[name].css', {
-            allChunks: true
-        }),
-        //new KssWebpackPlugin(KssConfig)
+  debug: true,
+  devtool: 'source-map',
+  entry: {
+    main: path.join(root, 'src/js'),
+  },
+  module: {
+    loaders: [
+      {
+        loader: ExtractTextPlugin.extract(
+          'style',
+          'css?sourceMap',
+          'sass?sourceMap',
+        ),
+        test: /\.scss$/,
+      },
     ],
-    resolve: {
-        alias: {
-
-            scss: path.join(root, 'src/scss')
-        }
-    }
+  },
+  output: {
+    filename: '[name].js',
+    path: path.join(root, 'dist'),
+  },
+  plugins: [
+    new ExtractTextPlugin('[name].css'),
+  ],
+  resolve: {
+    alias: {
+      scss: path.join(root, 'src/scss'),
+    },
+  },
 };
