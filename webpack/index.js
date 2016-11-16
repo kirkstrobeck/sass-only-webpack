@@ -5,7 +5,6 @@ const path = require('path');
 const root = path.join(__dirname, '..');
 
 module.exports = {
-  debug: true,
   devtool: 'source-map',
   entry: {
     main: path.join(root, 'src/js'),
@@ -13,11 +12,12 @@ module.exports = {
   module: {
     loaders: [
       {
-        loader: ExtractTextPlugin.extract(
-          'style',
-          'css?sourceMap',
-          'sass?sourceMap',
-        ),
+        loader: ExtractTextPlugin.extract({
+          loader: [
+            'css?sourceMap',
+            'sass?sourceMap',
+          ],
+        }),
         test: /\.scss$/,
       },
     ],

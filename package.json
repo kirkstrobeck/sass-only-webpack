@@ -7,13 +7,14 @@
     "eslint-plugin-import": "^2.1.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.6.0",
-    "extract-text-webpack-plugin": "^1.0.1",
+    "extract-text-webpack-plugin": "^2.0.0-beta",
     "node-sass": "^3.4.2",
     "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1",
     "webpack": "2.1.0-beta.25"
   },
   "scripts": {
-    "start": "webpack --config webpack",
+    "webpack": "webpack --config webpack",
     "test:lint": "eslint webpack"
   }
 }

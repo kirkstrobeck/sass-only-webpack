@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///webpack:///src/scss/src/scss/index.scss"],"names":[],"mappings":"AAAA;EACE,YAAY,EACb","file":"main.css","sourcesContent":["#test-css-rule {\n  width: 100%;\n}\n\n\n\n// WEBPACK FOOTER //\n// webpack:///src/scss/src/scss/index.scss"],"sourceRoot":""}
